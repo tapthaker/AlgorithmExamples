@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -7,9 +9,10 @@ import static org.junit.Assert.*;
  */
 public class CombinationOfArrayTest {
 
-    @Test
-    public void findCombinations() {
-        new CombinationOfArray().findCombinations(new int[][]{{1, 2, 3}, {1}, {1, 2}});
-    }
+  @Test
+  public void findCombinations() {
+
+    ArrayList<int[]> combinations = new CombinationOfArray().findCombinations(new int[][]{{1, 2, 3}, {1}, {1, 2}});
+  }
 
 }

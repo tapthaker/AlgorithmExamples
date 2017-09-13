@@ -15,8 +15,8 @@ public class FindNumberOfIslands {
         for (int i=0; i < count; i++) {
             for (int j=0; j<count; j++) {
                 if (!isVisited(i,j) && canVisit(i,j)) {
-                    numberOfIslands++;
                     applyDFS(i,j);
+                  numberOfIslands++;
                 }
             }
         }
@@ -47,7 +47,6 @@ public class FindNumberOfIslands {
             visited[i][j] = 1;
             applyDFS(i, j);
         }
-
     }
 
     private boolean canVisit(int i, int j) {

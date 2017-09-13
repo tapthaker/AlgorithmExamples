@@ -15,7 +15,7 @@ public class AlienDictionary {
             this.adjecentVertices = new ArrayList<Vertex>();
         }
 
-        void addAdejentVertex(Vertex vertex) {
+        void addAdjecentVertex(Vertex vertex) {
             this.adjecentVertices.add(vertex);
         }
 
@@ -61,7 +61,6 @@ public class AlienDictionary {
     }
 
     char[] getCharactersSortingOrder(String[] words) {
-
         for (int i = 1; i < words.length; i++) {
             Tuple tuple = getDiff(words[i -1], words[i]);
             createEdge(tuple);
@@ -87,11 +86,11 @@ public class AlienDictionary {
     private void createEdge(Tuple tuple) {
         Vertex firstVertex = getOrCreateVertex(tuple.first);
         Vertex secondVertex = getOrCreateVertex(tuple.second);
-        firstVertex.addAdejentVertex(secondVertex);
+        firstVertex.addAdjecentVertex(secondVertex);
     }
 
     private void topologicalSort(Vertex vertex, HashMap<Vertex, Boolean> visitedVertices, Stack<Vertex> stack) {
-        visitedVertices.put(vertex, true);
+          visitedVertices.put(vertex, true);
         for (Vertex adjecentVertex: vertex.adjecentVertices) {
             if (visitedVertices.get(adjecentVertex) == null) {
                 topologicalSort(adjecentVertex, visitedVertices, stack);

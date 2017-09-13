@@ -5,32 +5,22 @@ import java.util.ArrayList;
  */
 public class CombinationOfArray {
 
-    ArrayList<int[]> findCombinations(int[][] arrays) {
-        ArrayList<int[]> combinations = new ArrayList<int[]>();
-        int numberOfArrays = arrays.length;
-        int maxNumberOfElements = findMaxNumberOfElements(arrays);
-        for (int i = 0; i < maxNumberOfElements; i++) {
-            System.out.print("[");
-            for (int j = 0; j < numberOfArrays; j++) {
-                if (i < arrays[j].length) {
-                    System.out.print(arrays[j][i] + " ");
-                }
-            }
-            System.out.println("]");
-        }
+  ArrayList<int[]> findCombinations(int[][] arrays) {
+    ArrayList<int[]> combinations = new ArrayList<int[]>();
+    printCombination(arrays, 0, "");
+    return combinations;
+  }
 
+  void printCombination(int[][] array, int arrayIndex, String generatedCombination) {
 
-        return combinations;
+    if (arrayIndex == array.length) {
+      System.out.println(generatedCombination);
+      return;
     }
 
-    int findMaxNumberOfElements(int[][] arrays) {
-        int max = 0;
-        for (int i = 0; i < arrays.length; i++) {
-            if (arrays[i].length > max) {
-                max = arrays[i].length;
-            }
-        }
-        return max;
+    for (int i = 0; i < array[arrayIndex].length; i++) {
+      printCombination(array, arrayIndex + 1,
+          generatedCombination + array[arrayIndex][i]);
     }
-
+  }
 }
